@@ -2,19 +2,57 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true
+    node: true,
   },
   parserOptions: {
     parser: '@babel/eslint-parser',
-    requireConfigFile: false
+    requireConfigFile: false,
   },
   extends: [
     '@nuxtjs',
     'plugin:nuxt/recommended',
-    'prettier'
+    'prettier',
   ],
   plugins: [
   ],
   // add your custom rules here
-  rules: {}
+  rules: {
+    'camelcase': 'warn',
+    'key-spacing': 'warn',
+    'indent': ['warn', 2, { 'SwitchCase': 1 }],
+    'no-dupe-keys': 'error',
+    'semi': ['warn', 'never'],
+    // 'arrow-parens': ['warn', 'as-needed'],
+    'arrow-spacing': 'warn',
+    'block-spacing': 'warn',
+    'comma-dangle': ['warn', 'always-multiline'],
+    'comma-spacing': 'warn',
+    'eol-last': ['warn', 'always'],
+    'jsx-quotes': 'warn',
+    'keyword-spacing': 'warn',
+    'no-debugger': 'warn',
+    'no-confusing-arrow': 'warn',
+    'no-mixed-spaces-and-tabs': 'warn',
+    'no-multi-spaces': 'warn',
+    'no-multiple-empty-lines': ['warn', { 'max': 1, 'maxEOF': 0, 'maxBOF': 0 }],
+    'no-trailing-spaces': 'warn',
+    'no-whitespace-before-property': 'warn',
+    'no-undef': 'warn',
+    'no-unused-vars': 'warn',
+    'object-curly-spacing': ['warn', 'always'],
+    'padded-blocks': ['warn', 'never'],
+    'prefer-arrow-callback': 'warn',
+    'prefer-const': 'warn',
+    'prefer-template': 'warn',
+    'quotes': ['warn', 'single'],
+    'strict': 'warn',
+    'space-before-blocks': 'warn',
+    'space-infix-ops': 'warn',
+    'template-curly-spacing': ['warn', 'always'],
+    'import/default': 'warn',
+    'import/first': 'warn',
+    'import/newline-after-import': 'warn',
+    'import/no-commonjs': 'warn',
+    'import/no-unresolved': 'warn',
+  },
 }
