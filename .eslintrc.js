@@ -52,7 +52,8 @@ module.exports = {
     'import/default': 'warn',
     'import/first': 'warn',
     'import/newline-after-import': 'warn',
-    'import/no-commonjs': 'warn',
+    /* 'import/no-commonjs': 'warn', */
     'import/no-unresolved': 'warn',
+    'import/no-named-as-default': 0,
   },
 }

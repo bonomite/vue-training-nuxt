@@ -1,20 +1,19 @@
 <template>
   <div>
     <h1 class="red">Learning</h1>
-    <Form @onAddCat="onAddCat" />
-    <List :cats="cats" />
+    <Lazy-FormComp @onAddMovie="onAddMovie" />
+
+    <!-- v-if="movies.results" -->
+    <ListComp
+      v-if="movies.results"
+      :movies="movies.results"
+      :loading="loading"
+    />
   </div>
 </template>
 
 <script>
-import Form from '../components/Form.vue'
-import List from '../components/List.vue'
-
 export default {
-  components: {
-    Form,
-    List,
-  },
   data() {
     return {
       cats: [
@@ -24,17 +23,43 @@ export default {
         { name: 'Malachi' },
         { name: 'Johnny' },
       ],
+      loading: false,
+      movies: {},
     }
   },
+  mounted() {
+    this.fetchMovies()
+  },
   methods: {
-    onAddCat(obj) {
-      this.cats.push(obj)
+    onAddMovie(obj) {
+      this.movies.results.push(obj)
       // update db
+    },
+    async fetchMovies() {
+      const apiKey = '9e0e3fea734301f2135b9ab28c9d8be5'
+      const requestedPage = '1'
+      this.loading = true
+      await this.$axios
+        .$get(
+          `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=${requestedPage}`
+        )
+        .then((response) => {
+          // handle success
+          console.log(response)
+          this.movies = response
+        })
+        .catch((error) => {
+          // handle error
+          console.log(error)
+        })
+        .then(() => {
+          // always executed
+          this.loading = false
+        })
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-/* ask Kim why something has to be here */
 </style>
