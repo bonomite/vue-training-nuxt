@@ -48,7 +48,7 @@ module.exports = {
     'strict': 'warn',
     'space-before-blocks': 'warn',
     'space-infix-ops': 'warn',
-    'template-curly-spacing': ['warn', 'always'],
+    // 'template-curly-spacing': 'never',
     'import/default': 'warn',
     'import/first': 'warn',
     'import/newline-after-import': 'warn',

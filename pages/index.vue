@@ -1,16 +1,20 @@
 <template>
   <div>
-    <h1>Learning</h1>
-    <!-- <Form @addCat="onAddCat" /> -->
-    <p>Form</p>
-    <input v-model="newCat" />
-    <button @click="onAddCat">+ ADD</button>
+    <h1 class="red">Learning</h1>
+    <Form @onAddCat="onAddCat" />
     <List :cats="cats" />
   </div>
 </template>
 
 <script>
+import Form from '../components/Form.vue'
+import List from '../components/List.vue'
+
 export default {
+  components: {
+    Form,
+    List,
+  },
   data() {
     return {
       cats: [
@@ -20,14 +24,20 @@ export default {
         { name: 'Malachi' },
         { name: 'Johnny' },
       ],
-      newCat: '',
     }
   },
   methods: {
-    onAddCat: (event) => {
-      console.log('adding...', this.cats)
-      return this.cats.push({ name: this.newCat })
+    onAddCat(obj) {
+      this.cats.push(obj)
+      // update db
     },
   },
 }
 </script>
+
+<style lang="scss" scoped>
+/* ask Kim about global */
+/* .red {
+  color: $primaryColor;
+} */
+</style>
