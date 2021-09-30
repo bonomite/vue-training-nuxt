@@ -36,8 +36,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/* ask Kim about global */
-/* .red {
-  color: $primaryColor;
-} */
+/* ask Kim why something has to be here */
 </style>

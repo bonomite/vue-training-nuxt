@@ -2,7 +2,7 @@
   <div>
     <p>Form</p>
     <input v-model="newCat" @keyup.enter="add" />
-    <button @click="add">+ ADD</button>
+    <button :disabled="newCat.length < 1" @click="add">+ ADD</button>
     {{ kittifyName }}
   </div>
 </template>
@@ -25,6 +25,7 @@ export default {
   },
   computed: {
     kittifyName() {
+      console.log('computing')
       if (this.newCat.length > 1) {
         return `${this.newCat}y`
       }
@@ -33,8 +34,10 @@ export default {
   },
   methods: {
     add() {
-      this.$emit('onAddCat', { name: this.newCat })
-      this.newCat = ''
+      if (this.newCat.length > 0) {
+        this.$emit('onAddCat', { name: this.newCat })
+        this.newCat = ''
+      }
     },
   },
 }
@@ -48,5 +51,5 @@ p {
 </style>
 
 <style lang="scss" scoped>
-/* ask Kim about global */
+/* ask Kim why something has to be here */
 </style>

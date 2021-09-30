@@ -30,5 +30,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-/* ask Kim about global */
+/* ask Kim why something has to be here */
 </style>
