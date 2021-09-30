@@ -43,13 +43,6 @@ export default {
 }
 </script>
 
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: left;
-}
-</style>
-
 <style lang="scss" scoped>
 /* ask Kim why something has to be here */
 </style>
