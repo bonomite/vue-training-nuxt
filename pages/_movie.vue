@@ -1,10 +1,9 @@
 <template>
-  <div>Home Page</div>
+  <div>Movie</div>
 </template>
 
 <script>
 export default {
-  layout: 'default',
   mounted() {},
   methods: {},
 }

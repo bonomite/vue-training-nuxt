@@ -1,6 +1,10 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'universal',
+
+  loading: {
+    color: 'red',
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -36,6 +40,7 @@ export default {
     dirs: [
       '~/components',
       '~/components/comps',
+      '~/components/shared',
     ],
   },
 
@@ -44,6 +49,7 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     '@nuxtjs/google-fonts',
+    '@nuxtjs/svg',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
