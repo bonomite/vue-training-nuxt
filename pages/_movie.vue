@@ -10,13 +10,13 @@
 import fetches from '~/mixins/fetches.js'
 
 export default {
+  mixins: [fetches],
   asyncData({ params }) {
     console.log('params = ', params)
     const id = params.movie
 
     return { id }
   },
-  mixins: [fetches],
   data() {
     return {
       id: '',

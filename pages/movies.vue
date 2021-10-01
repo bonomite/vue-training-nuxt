@@ -21,6 +21,9 @@ export default {
       movies: {},
     }
   },
+  /*  async mounted() {
+    this.movies = await this.fetchMovies('1')
+  }, */
   mounted() {
     this.fetchMovies('1')
   },

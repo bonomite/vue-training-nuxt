@@ -13,6 +13,8 @@ export default {
           // handle success
 
           this.movies = response
+          // console.log('response - ', response)
+          // return response
         })
         /* .catch((error) => {
           // handle error
