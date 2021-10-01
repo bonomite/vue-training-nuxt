@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- TODO: put menu items in global store -->
     <TheHeader
       :menu-items="[
         { text: 'Home', url: '/' },

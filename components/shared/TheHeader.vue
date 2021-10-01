@@ -11,17 +11,12 @@
       >
         <a
           v-if="item.external"
-          :key="item.index"
           :href="item.url"
           :target="item.target || '_self'"
         >
           {{ item.text }}
         </a>
-        <NuxtLink
-          v-else
-          :key="item.index"
-          :to="item.url"
-          :target="item.target || '_self'"
+        <NuxtLink v-else :to="item.url" :target="item.target || '_self'"
           >{{ item.text }}
         </NuxtLink>
       </li>

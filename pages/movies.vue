@@ -11,9 +11,11 @@
 <script>
 // eslint-disable-next-line import/no-unresolved
 import FacebookIcon from '~/assets/svg/facebook.svg?inline'
+import fetches from '~/mixins/fetches.js'
 
 export default {
   components: { FacebookIcon },
+  mixins: [fetches],
   data() {
     return {
       movies: {},
@@ -21,36 +23,11 @@ export default {
   },
   mounted() {
     this.fetchMovies('1')
-    /* this.$nextTick(() => {
-      this.$nuxt.$loading.start()
-      setTimeout(() => this.$nuxt.$loading.finish(), 2000)
-    }) */
   },
   methods: {
     onAddMovie(obj) {
       this.movies.results.push(obj)
       // update db
-    },
-    async fetchMovies(page) {
-      const apiKey = '9e0e3fea734301f2135b9ab28c9d8be5'
-      const requestedPage = page || '1'
-
-      await this.$axios
-        .$get(
-          `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=${requestedPage}`
-        )
-        .then((response) => {
-          // handle success
-          // console.log(response)
-          this.movies = response
-        })
-        /* .catch((error) => {
-          // handle error
-          // console.log(error)
-        }) */
-        .then(() => {
-          // always executed
-        })
     },
   },
 }

@@ -11,7 +11,7 @@
           :attr="index"
           class="red"
         >
-          {{ movie.title }}
+          <NuxtLink :to="String(movie.id)">{{ movie.title }} </NuxtLink>
         </li>
       </ul>
     </div>
