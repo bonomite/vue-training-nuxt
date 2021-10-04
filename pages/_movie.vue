@@ -10,15 +10,15 @@
 </template>
 
 <script>
-// import fetches from '~/mixins/fetches.js'
 import fetches from '~/plugins/fetches.js'
 
 export default {
   // mixins: [fetches],
 
-  asyncData({ params }) {
+  async asyncData({ params }) {
     const id = params.movie
-    return { id }
+    const movieData = await fetches.fetchMovie(id)
+    return { id, movieData }
   },
   data() {
     return {
@@ -33,10 +33,7 @@ export default {
         : process.env.PUBLIC_URL + '/no-poster.jpg'
     },
   },
-  async created() {
-    this.movieData = await fetches.fetchMovie(this.id)
-    console.log(await fetches.fetchMovie(this.id))
-  },
+  async created() {},
   methods: {},
 }
 </script>

@@ -2,8 +2,8 @@
 @import "~nypr-design-system-vue/src/styles/_library/_base.mixins.scss";
 
 //import the theme
-@import "~nypr-design-system-vue/src/styles/gothamist";
-
+@import "~nypr-design-system-vue/src/styles/white-label";
+$primaryColor: #ff0000;
 .red {
     color: $primaryColor;
 }

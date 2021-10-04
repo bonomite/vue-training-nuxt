@@ -5,47 +5,26 @@
     <h1 class="red">Learning</h1>
     <Lazy-FormComp @onAddMovie="onAddMovie" />
     <ListComp :movies="movies.results" />
-    <!-- <paginate
-      v-model="page"
-      :page-count="20"
-      :page-range="3"
-      :margin-pages="2"
-      :click-handler="onChangePage"
-      :prev-text="'Prev'"
-      :next-text="'Next'"
-      :container-class="'pagination'"
-      :page-class="'page-item'"
-    > 
-    </paginate>-->
-    <!-- <v-button
-      href="https://google.com"
-      target="_blank"
-      class="donate-banner-button"
-      label="Donate Now"
-      @click="
-        () => {
-          console.log('clicked')
-        }
-      "
-      >NYPR Button
-    </v-button> -->
+
+    <VButton label="show window width" @click="() => {}" />
+    {{ this.currentBreakPoint }}
   </div>
 </template>
 
 <script>
 // import Paginate from 'vuejs-modern-pagination'
 // eslint-disable-next-line import/no-unresolved
+import VButton from 'nypr-design-system-vue/src/components/VButton'
 import FacebookIcon from '~/assets/svg/facebook.svg?inline'
-// import fetches from '~/mixins/fetches.js'
 import fetches from '~/plugins/fetches.js'
+import breakPointsUtil from '~/mixins/breakPointsUtil.js'
 
 export default {
   components: {
     FacebookIcon,
-    /* Paginate, */
-    // VButton: () => import('nypr-design-system-vue/src/components/VButton'),
+    VButton,
   },
-  // mixins: [fetches],
+  mixins: [breakPointsUtil],
   async asyncData() {
     const movies = await fetches.fetchMovies(1)
     return { movies }
@@ -59,8 +38,10 @@ export default {
   /*  async mounted() {
     this.movies = await this.fetchMovies('1')
   }, */
-  created() {
+  computed: {},
+  mounted() {
     // this.movies = fetches.fetchMovies('1')
+    this.getCurrentBreakPoint()
   },
   methods: {
     onAddMovie(obj) {

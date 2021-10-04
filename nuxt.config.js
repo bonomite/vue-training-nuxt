@@ -5,7 +5,6 @@ export default {
   loading: {
     color: 'red',
   },
-  transpile: ['nypr-design-system-vue'],
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'vue-training-nuxt',
@@ -62,12 +61,13 @@ export default {
 
   styleResources: {
     scss: [
-      '~/assets/scss/variables.scss',
+      '~/assets/scss/*.scss',
     ],
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: ['nypr-design-system-vue'],
   },
   googleFonts: {
     text: 'Learning',

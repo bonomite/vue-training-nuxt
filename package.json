@@ -20,7 +20,7 @@
     "core-js": "^3.15.1",
     "gsap": "^3.8.0",
     "nuxt": "^2.15.7",
-    "nypr-design-system-vue": "^1.0.7"
+    "nypr-design-system-vue": "github:nypublicradio/nypr-design-system-vue#018ca57b8189b426af1ae40f24fe3b0b5bd1da58"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.14.7",
