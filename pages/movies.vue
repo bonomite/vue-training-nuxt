@@ -5,7 +5,7 @@
     <h1 class="red">Learning</h1>
     <Lazy-FormComp @onAddMovie="onAddMovie" />
     <ListComp :movies="movies.results" />
-    <paginate
+    <!-- <paginate
       v-model="page"
       :page-count="20"
       :page-range="3"
@@ -15,8 +15,8 @@
       :next-text="'Next'"
       :container-class="'pagination'"
       :page-class="'page-item'"
-    >
-    </paginate>
+    > 
+    </paginate>-->
     <!-- <v-button
       href="https://google.com"
       target="_blank"
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import Paginate from 'vuejs-modern-pagination'
+// import Paginate from 'vuejs-modern-pagination'
 // eslint-disable-next-line import/no-unresolved
 import FacebookIcon from '~/assets/svg/facebook.svg?inline'
 // import fetches from '~/mixins/fetches.js'
@@ -42,7 +42,7 @@ import fetches from '~/plugins/fetches.js'
 export default {
   components: {
     FacebookIcon,
-    Paginate,
+    /* Paginate, */
     // VButton: () => import('nypr-design-system-vue/src/components/VButton'),
   },
   // mixins: [fetches],
@@ -78,4 +78,34 @@ export default {
 </script>
 
 <style lang="scss">
+.pagination {
+  margin: 50px auto;
+  background: rgb(109, 109, 109);
+  display: flex;
+  li {
+    width: 50px;
+    position: relative;
+    display: inline-flex;
+    border: 1px solid black;
+    a {
+      text-align: center;
+      width: 100%;
+      color: white;
+      &:hover {
+        color: red;
+      }
+    }
+    &.disabled {
+      pointer-events: none;
+      a {
+        color: rgb(51, 51, 51);
+      }
+    }
+    &.active {
+      background: blue;
+    }
+  }
+}
+.page-item {
+}
 </style>
