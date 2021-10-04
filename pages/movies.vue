@@ -11,11 +11,16 @@
 <script>
 // eslint-disable-next-line import/no-unresolved
 import FacebookIcon from '~/assets/svg/facebook.svg?inline'
-import fetches from '~/mixins/fetches.js'
+// import fetches from '~/mixins/fetches.js'
+import fetches from '~/plugins/fetches.js'
 
 export default {
   components: { FacebookIcon },
-  mixins: [fetches],
+  // mixins: [fetches],
+  async asyncData() {
+    const movies = await fetches.fetchMovies('1')
+    return { movies }
+  },
   data() {
     return {
       movies: {},
@@ -24,8 +29,8 @@ export default {
   /*  async mounted() {
     this.movies = await this.fetchMovies('1')
   }, */
-  mounted() {
-    this.fetchMovies('1')
+  created() {
+    // this.movies = fetches.fetchMovies('1')
   },
   methods: {
     onAddMovie(obj) {

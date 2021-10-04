@@ -1,4 +1,3 @@
-
 const apiKey = '9e0e3fea734301f2135b9ab28c9d8be5'
 export default {
   methods: {

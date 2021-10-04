@@ -30,48 +30,31 @@ export default {
       default: () => [],
     },
   },
-  data() {
-    return {
-      firstLoad: true,
-    }
-  },
   watch: {
     movies(newVal) {},
   },
   updated() {
     const { items } = this.$refs
-    if (this.firstLoad) {
-      this.firstLoad = false
-      gsap.from(items, {
-        duration: 0.2,
-        opacity: 0,
-        x: '+=20',
-        stagger: {
-          amount: 0.2,
-        },
-      })
-    } else {
-      const lastItem = items.at(-1)
-      gsap.from(lastItem, {
-        duration: 0.2,
-        opacity: 0,
-        x: '+=20',
-      })
-    }
-  },
-  mounted() {
-    // animate list when mounted
-    /* console.log('mounted')
-    const { items } = this.$refs
 
-    gsap.from(items, {
+    const lastItem = items.at(-1)
+    gsap.from(lastItem, {
       duration: 0.2,
       opacity: 0,
       x: '+=20',
+    })
+  },
+  mounted() {
+    // animate list when mounted
+    const { items } = this.$refs
+
+    gsap.from(items, {
+      duration: 0.5,
+      opacity: 0,
+      x: '+=20',
       stagger: {
-        amount: 0.2,
+        amount: 0.5,
       },
-    }) */
+    })
   },
   methods: {
     processUrl(movie) {
@@ -79,6 +62,7 @@ export default {
       return value === undefined
         ? ''
         : value
+            .replace(/'/, '')
             .replace(/[^a-z0-9_]+/gi, '-')
             .replace(/^-|-$/g, '')
             .toLowerCase()

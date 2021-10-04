@@ -8,14 +8,14 @@
 </template>
 
 <script>
-import fetches from '~/mixins/fetches.js'
+// import fetches from '~/mixins/fetches.js'
+import fetches from '~/plugins/fetches.js'
 
 export default {
-  mixins: [fetches],
-  asyncData({ params }) {
-    console.log('params = ', params)
-    const id = params.movie
+  // mixins: [fetches],
 
+  asyncData({ params }) {
+    const id = params.movie
     return { id }
   },
   data() {
@@ -24,8 +24,8 @@ export default {
       movieData: {},
     }
   },
-  mounted() {
-    this.fetchMovie(this.id)
+  async created() {
+    this.movieData = await fetches.fetchMovie(this.id)
   },
   methods: {},
 }
