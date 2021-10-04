@@ -4,6 +4,8 @@
     {{ id }}
     <br />
     {{ movieData.title }}
+    <br />
+    <img :src="posterPath" />
   </div>
 </template>
 
@@ -24,8 +26,16 @@ export default {
       movieData: {},
     }
   },
+  computed: {
+    posterPath() {
+      return this.movieData?.poster_path !== null
+        ? `https://image.tmdb.org/t/p/w500${this.movieData?.poster_path}`
+        : process.env.PUBLIC_URL + '/no-poster.jpg'
+    },
+  },
   async created() {
     this.movieData = await fetches.fetchMovie(this.id)
+    console.log(await fetches.fetchMovie(this.id))
   },
   methods: {},
 }
