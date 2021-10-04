@@ -2,6 +2,7 @@
   <div>
     <p>Movie Page</p>
     {{ id }}
+    <br />
     {{ movieData.title }}
   </div>
 </template>

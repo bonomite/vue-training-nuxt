@@ -11,7 +11,7 @@
           :attr="index"
           class="red"
         >
-          <NuxtLink :to="String(movie.id)">{{ movie.title }} </NuxtLink>
+          <NuxtLink :to="processUrl(movie)">{{ movie.title }} </NuxtLink>
         </li>
       </ul>
     </div>
@@ -72,6 +72,17 @@ export default {
         amount: 0.2,
       },
     }) */
+  },
+  methods: {
+    processUrl(movie) {
+      const value = `${movie.id}-${movie.title}`
+      return value === undefined
+        ? ''
+        : value
+            .replace(/[^a-z0-9_]+/gi, '-')
+            .replace(/^-|-$/g, '')
+            .toLowerCase()
+    },
   },
 }
 </script>
