@@ -36,12 +36,21 @@ export default {
   updated() {
     const { items } = this.$refs
 
-    const lastItem = items.at(-1)
+    gsap.from(items, {
+      duration: 0.5,
+      opacity: 0,
+      x: '+=20',
+      stagger: {
+        amount: 0.5,
+      },
+    })
+
+    /*    const lastItem = items.at(-1)
     gsap.from(lastItem, {
       duration: 0.2,
       opacity: 0,
       x: '+=20',
-    })
+    }) */
   },
   mounted() {
     // animate list when mounted

@@ -5,7 +5,7 @@ export default {
   loading: {
     color: 'red',
   },
-
+  transpile: ['nypr-design-system-vue'],
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'vue-training-nuxt',

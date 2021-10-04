@@ -1,3 +1,9 @@
+@import "~nypr-design-system-vue/src/styles/_library/_base.media.scss";
+@import "~nypr-design-system-vue/src/styles/_library/_base.mixins.scss";
+
+//import the theme
+@import "~nypr-design-system-vue/src/styles/gothamist";
+
 .red {
     color: $primaryColor;
 }
