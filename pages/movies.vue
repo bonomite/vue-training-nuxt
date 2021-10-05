@@ -6,13 +6,13 @@
     <Lazy-FormComp @onAddMovie="onAddMovie" />
     <ListComp :movies="movies.results" />
 
-    <VButton label="show window width" @click="() => {}" />
-    {{ this.currentBreakPoint }}
+    <VButton label="BUTTON" @click="() => {}" />
+    <p>Current break point = {{ currentBreakPoint }}</p>
+    <p>Current width = {{ currentWidth }}</p>
   </div>
 </template>
 
 <script>
-// import Paginate from 'vuejs-modern-pagination'
 // eslint-disable-next-line import/no-unresolved
 import VButton from 'nypr-design-system-vue/src/components/VButton'
 import FacebookIcon from '~/assets/svg/facebook.svg?inline'
@@ -35,12 +35,8 @@ export default {
       page: 1,
     }
   },
-  /*  async mounted() {
-    this.movies = await this.fetchMovies('1')
-  }, */
   computed: {},
-  mounted() {
-    // this.movies = fetches.fetchMovies('1')
+  beforeMount() {
     this.getCurrentBreakPoint()
   },
   methods: {
@@ -59,34 +55,4 @@ export default {
 </script>
 
 <style lang="scss">
-.pagination {
-  margin: 50px auto;
-  background: rgb(109, 109, 109);
-  display: flex;
-  li {
-    width: 50px;
-    position: relative;
-    display: inline-flex;
-    border: 1px solid black;
-    a {
-      text-align: center;
-      width: 100%;
-      color: white;
-      &:hover {
-        color: red;
-      }
-    }
-    &.disabled {
-      pointer-events: none;
-      a {
-        color: rgb(51, 51, 51);
-      }
-    }
-    &.active {
-      background: blue;
-    }
-  }
-}
-.page-item {
-}
 </style>
