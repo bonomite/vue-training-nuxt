@@ -9,6 +9,10 @@
     <VButton label="BUTTON" @click="() => {}" />
     <p>Current break point = {{ currentBreakPoint }}</p>
     <p>Current width = {{ currentWidth }}</p>
+
+    <p v-if="currentBreakPoint === breakPointLables.XL">EXTRA LARGE ONLY</p>
+    <p v-if="currentWidth >= breakPointWidths.LG">EXTRA LARGE or HIGHER</p>
+    <p v-if="currentWidth <= breakPointWidths.LG">LARGE or LOWER</p>
   </div>
 </template>
 
@@ -37,11 +41,8 @@ export default {
   },
   computed: {},
   beforeMount() {
-    this.getCurrentBreakPoint()
+    this.getCurrentBreakPoint(500, 1000)
   },
-  /*  beforeDestroy() {
-    window.removeEventListener('resize', this.reportWindowSize)
-  }, */
   methods: {
     onAddMovie(obj) {
       this.movies.results.push(obj)
