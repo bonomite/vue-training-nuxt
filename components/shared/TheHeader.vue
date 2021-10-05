@@ -3,7 +3,7 @@
     <div>HEADER</div>
     <ul>
       <li
-        v-for="(item, index) in menuItems"
+        v-for="(item, index) in headerNav"
         ref="items"
         :key="index"
         :attr="index"
@@ -25,12 +25,14 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
-  props: {
-    menuItems: {
-      type: Array,
-      default: () => [],
-    },
+  props: {},
+  computed: {
+    ...mapState('global', {
+      headerNav: (state) => state.headerNav,
+    }),
   },
   mounted() {},
   methods: {},

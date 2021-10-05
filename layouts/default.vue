@@ -1,18 +1,7 @@
 <template>
   <div>
     <!-- TODO: put menu items in global store -->
-    <TheHeader
-      :menu-items="[
-        { text: 'Home', url: '/' },
-        { text: 'Movies', url: '/movies' },
-        {
-          text: 'Bono',
-          url: 'http://thomasbono.com',
-          target: '_blank',
-          external: true,
-        },
-      ]"
-    />
+    <TheHeader />
     <Nuxt />
     <TheFooter />
   </div>
