@@ -39,6 +39,9 @@ export default {
   beforeMount() {
     this.getCurrentBreakPoint()
   },
+  /*  beforeDestroy() {
+    window.removeEventListener('resize', this.reportWindowSize)
+  }, */
   methods: {
     onAddMovie(obj) {
       this.movies.results.push(obj)

@@ -23,23 +23,26 @@ export default {
       ],
     }
   },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.reportWindowSize)
+  },
   methods: {
-    getCurrentBreakPoint() {
-      const reportWindowSize = () => {
-        let breakPoint = this.breakPoints[0].label
-        const windowWidth = window.innerWidth
-        for (const [i, bp] of Object.entries(this.breakPoints)) {
-          if (windowWidth >= bp.width) {
-            // nothing
-          } else {
-            breakPoint = bp.label
-          }
+    reportWindowSize() {
+      let breakPoint = this.breakPoints[0].label
+      const windowWidth = window.innerWidth
+      for (const [i, bp] of Object.entries(this.breakPoints)) {
+        if (windowWidth >= bp.width) {
+          // nothing
+        } else {
+          breakPoint = bp.label
         }
-        this.currentWidth = windowWidth
-        this.currentBreakPoint = breakPoint
       }
-      window.addEventListener('resize', reportWindowSize)
-      reportWindowSize()
+      this.currentWidth = windowWidth
+      this.currentBreakPoint = breakPoint
+    },
+    getCurrentBreakPoint() {
+      window.addEventListener('resize', this.reportWindowSize)
+      this.reportWindowSize()
     },
   },
 }
