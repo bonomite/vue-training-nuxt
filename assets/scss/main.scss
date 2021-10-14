@@ -3,7 +3,8 @@
 
 //import the theme
 @import "~nypr-design-system-vue/src/styles/white-label";
-$primaryColor: #ff0000;
+
+//@import "variables.scss";
 .red {
     color: $primaryColor;
 }

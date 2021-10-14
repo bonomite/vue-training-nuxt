@@ -1,1 +1,21 @@
 $primaryColor: #ff0000;
+
+/* breakpoints */
+/* these break point values should matach the image:{} values in the nuxt.config */
+$xxxl: 1500;
+$xxl: 1200;
+$xl: 1024;
+$lg: 850;
+$md: 768;
+$sm: 550;
+$xs: 360;
+
+:export {
+    xxxl: $xxxl;
+    xxl: $xxl;
+    xl: $xl;
+    lg: $lg;
+    md: $md;
+    sm: $sm;
+    xs: $xs;
+}

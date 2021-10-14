@@ -1,4 +1,5 @@
 import _ from "lodash"
+import variables from '~/assets/scss/variables.scss'
 
 export default {
   data() {
@@ -11,17 +12,18 @@ export default {
       SM: '$small',
       XS: '$xsmall',
     }
+    /* values are aquired from the variables.scss as exported vars */
     const bpWidths = {
-      XXXL: 1500,
-      XXL: 1200,
-      XL: 1024,
-      LG: 850,
-      MD: 768,
-      SM: 550,
-      XS: 360,
+      XXXL: variables.xxxl,
+      XXL: variables.xxl,
+      XL: variables.xl,
+      LG: variables.lg,
+      MD: variables.md,
+      SM: variables.sm,
+      XS: variables.xs,
     }
     return {
-      currentWidth: 0,
+      currentWidth: null,
       currentBreakPoint: '',
       throttleDelay: null,
       debounceDelay: null,
@@ -80,11 +82,15 @@ export default {
         this.updateCurrentBreakPoint()
       }
     },
-    getCurrentBreakPoint(throttleDelay, debounceDelay) {
+    listenToCurrentBreakPoint(throttleDelay, debounceDelay) {
       this.throttleDelay = throttleDelay
       this.debounceDelay = debounceDelay
       window.addEventListener('resize', this.onResize)
       // call initially
+      this.updateCurrentBreakPoint()
+    },
+
+    getCurrentBreakPoint() {
       this.updateCurrentBreakPoint()
     },
   },

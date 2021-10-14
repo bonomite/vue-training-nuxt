@@ -39,9 +39,14 @@ export default {
       page: 1,
     }
   },
+  head() {
+    return {
+      title: 'MOVIES',
+    }
+  },
   computed: {},
   beforeMount() {
-    this.getCurrentBreakPoint(500, 1000)
+    this.listenToCurrentBreakPoint(500, 1000)
   },
   methods: {
     onAddMovie(obj) {
@@ -49,7 +54,6 @@ export default {
       // update db
     },
     async onChangePage(pageNum) {
-      console.log(pageNum)
       this.page = pageNum
       this.movies = await fetches.fetchMovies(pageNum)
       // update page of items

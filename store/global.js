@@ -1,7 +1,7 @@
 export const state = () => ({
 
   siteSample: process.env.VUE_APP_SAMPLE_ENV_VAR,
-  defaultImage: '/static-images/defaults/no-category/no-category-tile.png',
+  defaultImage: '/images/no-poster.jpg',
   headerNav: [
     { text: 'Home', url: '/' },
     { text: 'Movies', url: '/movies' },

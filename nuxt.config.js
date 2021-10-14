@@ -16,9 +16,16 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
+      { name: 'msapplication-TileColor', content: '#ffffff' },
+      { name: 'theme-color', content: '#ffffff' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+      { rel: 'manifest', type: 'image/png', href: '/site.webmanifest' },
+      { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#5bbad5' },
     ],
   },
 
@@ -47,8 +54,34 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     '@nuxtjs/google-fonts',
+    '@nuxtjs/google-analytics',
     '@nuxtjs/svg',
+    '@nuxt/image',
+    '@nuxtjs/fontawesome',
   ],
+  fontawesome: {
+    icons: {
+      solid: ['faHome'],
+      regular: ['faAdjust'],
+    },
+  },
+
+  googleAnalytics: {
+    id: 'UA-134339276-1',
+  },
+
+  image: {
+    // The screen sizes predefined by `@nuxt/image`:
+    screens: {
+      xs: 360,
+      sm: 550,
+      md: 768,
+      lg: 850,
+      xl: 1024,
+      xxl: 1200,
+      xxxl: 1500,
+    },
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
@@ -61,7 +94,8 @@ export default {
 
   styleResources: {
     scss: [
-      '~/assets/scss/*.scss',
+      '~/assets/scss/variables.scss',
+      '~/assets/scss/main.scss',
     ],
   },
 
