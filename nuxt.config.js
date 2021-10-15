@@ -59,12 +59,6 @@ export default {
     '@nuxt/image',
     '@nuxtjs/fontawesome',
   ],
-  fontawesome: {
-    icons: {
-      solid: ['faHome'],
-      regular: ['faAdjust'],
-    },
-  },
 
   googleAnalytics: {
     id: 'UA-134339276-1',

@@ -2,7 +2,9 @@
   <div>
     <!-- TODO: put menu items in global store -->
     <TheHeader />
-    <Nuxt />
+    <div class="wrapper">
+      <Nuxt />
+    </div>
     <TheFooter />
   </div>
 </template>

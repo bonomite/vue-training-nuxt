@@ -6,9 +6,35 @@
 
 //@import "variables.scss";
 .red {
-    color: $primaryColor;
+  color: $primaryColor;
 }
 * {
-    font-family: "Yaldevi", sans-serif;
-    font-weight: 500;
+  font-family: "Yaldevi", sans-serif;
+  font-weight: 500;
+}
+
+.wrapper {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: $spacing * 6;
+  margin-bottom: $spacing * 6;
+  @media (max-width: $xxxl+"px") {
+    width: 75%;
+  }
+  @media (max-width: $xxl+"px") {
+    width: 90%;
+  }
+  @media (max-width: $xl+"px") {
+    width: 100%;
+    padding: 0 $spacing * 2;
+  }
+  @media (max-width: $md+"px") {
+    margin-top: $spacing * 3;
+    margin-bottom: $spacing * 3;
+  }
+
+  @media (max-width: $xs+"px") {
+    padding: 0 $spacing;
+  }
 }
