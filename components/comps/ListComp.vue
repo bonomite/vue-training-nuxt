@@ -90,7 +90,7 @@ export default {
 }
 .container {
   display: grid;
-  gap: 16px;
+  gap: 40px 16px;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   .item-holder {
     display: grid;
@@ -98,6 +98,7 @@ export default {
     text-decoration: none;
     .item {
       display: grid;
+      grid-template-rows: 1fr auto auto;
       width: 100%;
       img {
         transition: all 0.25s;
