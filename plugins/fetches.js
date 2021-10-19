@@ -22,4 +22,13 @@ export default {
     return movie
   },
 
+  async fetchApiGallery(id) {
+    const response = await fetch(
+      `https://cms.demo.nypr.digital/api/v2/pages/${id}`
+    )
+    const gallery = await response.json()
+
+    return gallery
+  },
+
 }

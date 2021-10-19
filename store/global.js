@@ -5,6 +5,7 @@ export const state = () => ({
   headerNav: [
     { text: 'Home', url: '/' },
     { text: 'Movies', url: '/movies' },
+    { text: 'API', url: '/api' },
     {
       text: 'Bono',
       url: 'http://thomasbono.com',

@@ -4,7 +4,7 @@
     <FacebookIcon title="New Title" />
     <h1 class="red">Learning</h1>
     <Lazy-FormComp @onAddMovie="onAddMovie" />
-    <ListComp :movies="movies.results" />
+    <ListComp :results="movies.results" />
 
     <VButton label="BUTTON" @click="() => {}" />
     <p>Current break point = {{ currentBreakPoint }}</p>

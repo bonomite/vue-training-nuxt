@@ -2,27 +2,23 @@
   <div class="list-comp">
     <LoadingIndicator v-if="!results.length" />
     <div v-else>
-      <p ref="title">List of Movies</p>
       <div class="container">
-        <NuxtLink
-          v-for="(movie, index) in results"
+        <div
+          v-for="(img, index) in results"
+          ref="items"
           :key="index"
-          :to="getProcessUrl(movie)"
           :attr="index"
+          :title="img.value.slide_image.image.alt"
           class="item-holder"
-          :title="movie.title"
         >
-          <div ref="items" class="item">
-            <img :src="getPoster(movie.poster_path)" />
-            <p class="title">{{ movie.title }}</p>
-            <div class="info">
-              <p class="date">{{ movie.release_date }}</p>
-              <p class="stars">
-                {{ movie.vote_average / 2 }}<font-awesome-icon :icon="faStar" />
-              </p>
-            </div>
+          <div class="item">
+            <img
+              :src="img.value.slide_image.image.file"
+              :alt="img.value.slide_image.image.alt"
+            />
+            <p class="title">{{ img.value.slide_image.image.alt }}</p>
           </div>
-        </NuxtLink>
+        </div>
       </div>
     </div>
   </div>
@@ -74,14 +70,7 @@ export default {
       },
     })
   },
-  methods: {
-    getProcessUrl(movie) {
-      return helpers.processUrl(movie)
-    },
-    getPoster(path) {
-      return 'https://image.tmdb.org/t/p/w400/' + path
-    },
-  },
+  methods: {},
 }
 </script>
 
@@ -97,13 +86,16 @@ export default {
     display: grid;
     width: 100%;
     text-decoration: none;
+
     .item {
       display: grid;
       grid-template-rows: 1fr auto auto;
+      justify-items: center;
       width: 100%;
       img {
         transition: all 0.25s;
         border-radius: 4px;
+        height: 100px;
       }
       p {
         text-decoration: none;
@@ -115,7 +107,9 @@ export default {
         text-overflow: ellipsis;
         text-align: left;
         margin-top: 8px;
+        padding-bottom: $spacing/2;
         line-height: 1rem;
+        width: 100%;
       }
       .info {
         display: grid;
